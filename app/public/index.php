@@ -15,10 +15,7 @@ use function FastRoute\simpleDispatcher;
 /**
  * Define the routes for the application.
  */
-$dispatcher = simpleDispatcher(function (RouteCollector $r) {
-    $r->addRoute('GET', '/', ['App\Controllers\ProductController', 'index']);
-    $r->addRoute('GET', '/{id}', ['App\Controllers\ProductController', 'get']);
-});
+$dispatcher = simpleDispatcher(function (RouteCollector $r) {});
 
 /**
  * Get the request method and URI from the server variables and invoke the dispatcher.
