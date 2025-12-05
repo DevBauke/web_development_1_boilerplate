@@ -1,4 +1,17 @@
+
 <?php
+    
+include('header.php');
+echo var_dump($_GET);
+die();
+if(isset($_GET["name"])){
+echo 'Hello' . $_GET['name'] . '!';
+}
+else {
+   echo "Specify a name";
+}
+include('footer.php');
+?>
 
 /**
  * PHP has several global variables that are available in all scopes.
@@ -35,10 +48,4 @@ echo 'Hello world!';
 // To start writing HTML, just close the PHP tag like this:
 
 // View source code in the browser to see the HTML output. Anything missing? 😱😱😱
-
 ?>
-
-<div>
-    <iframe src="https://giphy.com/embed/xTk9ZY0C9ZWM2NgmCA" width="480" height="480" style="" frameBorder="0"
-        class="giphy-embed" allowFullScreen></iframe>
-</div>

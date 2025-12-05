@@ -18,6 +18,9 @@ use function FastRoute\simpleDispatcher;
 $dispatcher = simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/', ['App\Controllers\HomeController', 'home']);
     $r->addRoute('GET', '/hello/{name}', ['App\Controllers\HelloController', 'greet']);
+    $r->addRoute('GET', '/guestbook', ['App\Controllers\GuestBookController', 'getAll']);
+    $r->addRoute('POST', '/guestbook', ['App\Controllers\GuestBookController', 'submitForm']);
+    $r->addRoute('GET', '/articles', ['App\Controllers\ArticleController', 'index']);
 });
 
 
@@ -56,7 +59,16 @@ switch ($routeInfo[0]) {
          */
 
         // TODO: invoke the controller and method using the data in $routeInfo[1]
-
+        $controllerName = $routeInfo[1][0];
+        $methodName = $routeInfo[1][1];
+        $queryVars = $routeInfo[2];
+        $controller = new $controllerName();
+        $controller->$methodName($queryVars);
+        
+        /*echo "Controller: " . $controller;
+        echo "<br>Method: " . $method;
+        die();*/
+        
         /**
          * $route[2] contains any dynamic parameters parsed from the URL.
          * For instance, if we add a route like:
@@ -66,7 +78,7 @@ switch ($routeInfo[0]) {
 
         // TODO: pass the dynamic route data to the controller method
         // When done, visiting `http://localhost/hello/dan-the-man` should output "Hi, dan-the-man!"
-        throw new Exception('Not implemented yet');
+        //throw new Exception('Not implemented yet');
 
         break;
 }
