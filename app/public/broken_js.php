@@ -1,4 +1,4 @@
-<!-- NOTE - for demo purposes only. For the assignment, use routing!!! -->
+<!-- NOTE - for demo/exercise purposes only. For the assignment, use routing!!! -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,9 +8,8 @@
     <!-- add script link here -->
     <title>JS Example</title>
     <script>
-        console.log("Hello from JS!");
+    console.log("Hello from JS!");
     </script>
-    <script src="/assets/js/task_manager.js"></script>
 </head>
 
 <body>
